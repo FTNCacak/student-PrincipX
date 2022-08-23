@@ -1,4 +1,4 @@
-<img src="Slike2/FTNCacak-Logo.png" alt="FTN-logo" width="25"/> <span style="color:#a00000;font-size:24pt">FTN Čačak</span>
+<img src="Slike/FTNCacak-Logo.png" alt="FTN-logo" width="25"/> <span style="color:#a00000;font-size:24pt">FTN Čačak</span>
 
 ### Softversko inženjerstvo 2021/2022.
 ___
