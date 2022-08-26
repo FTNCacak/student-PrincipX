@@ -21,7 +21,10 @@ ______
 #### 'Gang of Four' design pattern-i je kolekcija od 23 dizajn obrasca iz knjige "Design Patterns: Elements of Reusable Object-Oriented Software".
 #### Ova knjiga je prvi put objavljena 1994. godine i jedna je od najpopularnijih knjiga za učenje design pattern-a. Autori knjige su Erich Gamma, Richard Helm, Ralph Johnson i John Vlissides. Knjiga je dobila nadimak 'Gang of Four Design Patterns' zbog četiri autora. Štaviše, dobili su još kraće ime kao 'GoF Design Patterns'.
 
-<img src="Slike/bookImage.png" alt="Design-Patterns-Elements-of-Reusable-OO-Software" width="300"/><span style="font-size:8pt;display:block;">Gang of Four Design Patterns knjiga</span>
+
+<p align="center">
+  <img src="Slike/bookImage.png" width="300"/>
+</p>
 
 #### Dizajn obrasci predstavljaju rešenje visokog kvaliteta za višekratnu upotrebu za dati zahtev, zadatak ili problem koji se ponavlja.
 
