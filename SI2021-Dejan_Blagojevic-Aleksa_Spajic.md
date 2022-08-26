@@ -79,7 +79,26 @@ ______
 ______
 
 ### Creational Patterns
-#### Tekst
+
+#### Kreacioni dizajn obrasci se bave mehanizmima kreiranja objekata. Fokus je na tome kako se objekti kreiraju i koriste u aplikaciji.
+
+#### Kreacioni pattern-i se sastoje od dve dominantne ideje. Jedna je enkapsulacija znanja o tome koje konkretne klase sistem koristi, a druga predstavlja skrivanje toga kako se instance ovih konkretnih klasa kreiraju i kombinuju.
+
+#### Kreacioni pattern-i su dalje kategorisani u pattern-e za kreiranje objekata i pattern-e za kreiranje klasa, gde se pattern-i za kreiranje objekata bave kreiranjem objekata, a pattern-i za kreiranje klasa bave instanciranjem klase.
+
+#### Detaljnije, pattern-i za kreiranje objekata odlažu deo kreiranja svog objekta na drugi objekat, dok pattern-i za kreiranje klasa odlažu kreiranje svog objekta na podklase.
+
+#### Kreacioni pattern-i se dele u pet kategorija
+
+##### 1. Factory Method - Kreira instancu nekoliko izvedenih klasa
+
+##### 2. Abstract Factory - Kreira instancu nekoliko porodica klasa
+
+##### 3. Builder - Odvaja konstrukciju objekta od njegovog predstavljanja
+
+##### 4. Prototype - Potpuno inicijalizovana instanca za kopiranje ili kloniranje
+
+##### 5. Singleton - Klasa kod koje može postojati samo jedna instanca
 
 ______
 
