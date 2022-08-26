@@ -45,12 +45,12 @@ ______
 ##### - Poznajući dizajn obrasce činimo komunikaciju tokom izrade projekta dosta efikasnijom, jer svi poznaju ideje korišćene za specifične dizajn obrasce, nasuprot idejama rešenja problema koje smo samostalno kreirali.
 
 #### Dizajn obrasci se dele u 3 grupe:
+```
+- Creational patterns (kreacioni)
 
-#### 1. Creational patterns (kreacioni)
+- Structural patterns (strukturalni)
 
-#### 2. Structural patterns (strukturalni)
-
-#### Behavioral patterns (bihevioralni)
+- Behavioral patterns (bihevioralni)
 
 
 ______
