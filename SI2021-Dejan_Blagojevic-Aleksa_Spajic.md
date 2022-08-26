@@ -145,3 +145,9 @@ ______
 4. https://insight.averna.com/en/resources/blog/how-can-design-patterns-solve-all-your-problems
 
 5. https://stackify.com/what-is-c-used-for/
+
+6. https://www.dofactory.com
+
+7. https://sourcemaking.com/design_patterns
+
+8. https://refactoring.guru/design-patterns/csharp
