@@ -111,6 +111,94 @@ ______
 #### KORIŠĆENJE: Factory Method pattern se veoma često koristi u C# kodu. Veoma je koristan u slučajevima kada je potrebno obezbediti visok nivo fleksibilnosti našeg koda.
 
 #### PREPOZNAVANJE: Factory Method se može prepoznati po metodama kreiranja koje konstruišu objekte iz konkretnih klasa. Dok se konkretne klase koriste tokom kreiranja objekata, tip vraćanja factory metoda se obično deklariše ili kao apstraktna klasa ili kao interfejs.
+
+### Primer:
+
+##### Factory.cs:
+```
+abstract class Factory
+	{
+		public abstract IVehicle GetVehicle();
+	}
+```
+
+##### FactoryForCar.cs:
+```
+class FactoryForCar : Factory
+    {
+        public override IVehicle GetVehicle()
+        {
+            return new Car();
+        }
+    }
+```
+
+##### FactoryForBike.cs:
+```
+class FactoryForBike : Factory
+    {
+        public override IVehicle GetVehicle()
+        {
+            return new Bike();
+        }
+    }
+```
+
+##### IVehicle.cs:
+```
+interface IVehicle
+    {
+        void GetDetails();
+    }
+```
+
+##### Car.cs:
+```
+class Car : IVehicle
+    {
+        public void GetDetails()
+        {
+            Console.WriteLine("Saljem vam informacije o autima.");
+        }
+    }
+```
+
+##### Bike.cs:
+```
+class Bike : IVehicle
+    {
+        public void GetDetails()
+        {
+            Console.WriteLine("Saljem vam informacije o motorima.");
+        }
+    }
+```
+
+##### Program.cs:
+```
+class Program
+    {
+        static void Main(string[] args)
+        {
+            Factory[] objFactories = new Factory[2];
+            objFactories[0] = new FactoryForCar();
+            objFactories[1] = new FactoryForBike();
+            foreach (Factory objFactory in objFactories)
+            {
+                IVehicle objProduct = objFactory.GetVehicle();
+                objProduct.GetDetails();
+            }
+        }
+    }
+```
+
+### OUTPUT:
+
+<p align="center">
+  <img src="Slike/factoryMethod.png" width="400"/>
+</p>
+
+#### NAPOMENA: Klase `FactoryForCar.cs` i `FactoryForBike.cs` se koriste za implementaciju Factory metode, dok se klasa `Factory.cs` koristi za deklaraciju.
 ______
 
 ### Abstract Factory
