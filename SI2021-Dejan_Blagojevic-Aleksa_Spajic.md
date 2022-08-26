@@ -11,7 +11,30 @@ ___
 ______
 
 ### Uvod
-#### Tekst
+
+#### C# je objektno-orijentisani programski jezik opšte namene. Razvijen je 2000. godine, od strane Microsoft-a. Na čelu tima koji se bavio razvojem C#-a bio je Anders Hejlsberg.
+
+#### Januara 1999. godine, Anders Hejlsberg osnovao je tim za izradu novog programskog jezika koji se u početku zvao COOL (C-like Object Oriented Language), idejno zamišljen kao jezik C, ali objektno orijentisan.
+
+#### Microsoft je hteo da sačuva prvobitno ime, ali je zbog zaštitnog znaka odustao. U julu 2000. godine, okruženje .NET predstavljeno je na Konferenciji profesionalnih programera (Professional Developers Conference), jezik je preimenovan u C#, a biblioteke i ASP.NET prenesene u C#.
+
+#### C# predstavlja naslednika C i C++ jezika, dobio je ime šarp, inspirisano muzičkom notacijom i znači da se napisana nota izvodi za pola koraka više. Fajlovi pisani u ovom jeziku imaju ekstenziju `.cs`.
+
+#### Hejlsberg je glavni dizajner C#-a u Microsoft-u, a ranije je radio i na dizajnu Turbo Pascal-a, Delphi-a i Visual J++. U mnogim intervjuima i tehničkim dokumentima on je naveo da su upravo nedostaci drugih programskih jezika doveli do stvaranja C#.
+
+#### C# se danas koristi širom sveta za razvijanje raznih tipova programa i aplikacija.
+
+#### Iako je izuzetno prilagodljiv jezik, postoje tri oblasti u kojima se obično primenjuje:
+
+##### 1. Razvijanje web aplikacija - Možemo razvijati dinamičke web-sajtove i web-aplikacije koristeći .NET platformu ili neke od drugih platformi otvorenog koda (open-source)
+
+##### 2. Razvijanje Windows aplikacija - Programeri mogu da računaju na podršku zajednice i dokumentaciju za razvoj aplikacija i programa koji su specifični za arhitekturu Microsoft platforme.
+
+##### 3. Razvijanje video igara - Veliki broj game engine-a koji se koriste za razvoj video igara podržava C#. Jedan od njih je i Unity, jedan od najpopularnijih game engine-a uopšte.
+
+<p align="center">
+  <img src="Slike/csharp.png" width="300"/>
+</p>
 
 ______
 
@@ -95,3 +118,5 @@ ______
 3. https://www.digitalocean.com/community/tutorials/gangs-of-four-gof-design-patterns
 
 4. https://insight.averna.com/en/resources/blog/how-can-design-patterns-solve-all-your-problems
+
+5. https://stackify.com/what-is-c-used-for/
