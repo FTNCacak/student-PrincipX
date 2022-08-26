@@ -103,8 +103,14 @@ ______
 ______
 
 ### Factory Method
-#### Tekst
 
+#### Factory Method je kreacioni dizajn pattern koji rešava problem kreiranja objekata bez specificiranja njihovih konkretnih klasa.
+
+#### Factory Method definiše metodu koja treba da se koristi za kreiranje objekata umesto direktnog poziva konstruktora (`new` operator). Podklase mogu zameniti ovaj metod da bi promenile klasu objekata koji će biti kreirani.
+
+#### KORIŠĆENJE: Factory Method pattern se veoma često koristi u C# kodu. Veoma je koristan u slučajevima kada je potrebno obezbediti visok nivo fleksibilnosti našeg koda.
+
+#### PREPOZNAVANJE: Factory Method se može prepoznati po metodama kreiranja koje konstruišu objekte iz konkretnih klasa. Dok se konkretne klase koriste tokom kreiranja objekata, tip vraćanja factory metoda se obično deklariše ili kao apstraktna klasa ili kao interfejs.
 ______
 
 ### Abstract Factory
