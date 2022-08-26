@@ -195,7 +195,7 @@ class Program
 ### OUTPUT:
 
 <p align="center">
-  <img src="Slike/factoryMethod.png" width="400"/>
+  <img src="Slike/factoryMethod.png" width="600"/>
 </p>
 
 #### NAPOMENA: Klase `FactoryForCar.cs` i `FactoryForBike.cs` se koriste za implementaciju Factory metode, dok se klasa `Factory.cs` koristi za deklaraciju.
