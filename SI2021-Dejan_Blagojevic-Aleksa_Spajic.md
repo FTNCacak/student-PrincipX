@@ -46,11 +46,11 @@ ______
 
 #### Dizajn obrasci se dele u 3 grupe:
 
-- Creational patterns (kreacioni)
+##### 1. Creational patterns (kreacioni)
 
-- Structural patterns (strukturalni)
+##### 2. Structural patterns (strukturalni)
 
-- Behavioral patterns (bihevioralni)
+##### 3. Behavioral patterns (bihevioralni)
 
 
 ______
