@@ -202,7 +202,180 @@ class Program
 ______
 
 ### Abstract Factory
-#### Tekst
+
+#### Abstract Factory je kreacioni dizajn pattern, koji rešava problem stvaranja čitavih familija proizvoda bez specificiranja njihovih konkretnih klasa.
+
+#### Abstract Factory definiše interfejs za kreiranje svih različitih proizvoda, ali prepušta stvarno kreiranje proizvoda konkretnim fabričkim klasama. Svaki tip fabrike odgovara odredjenoj vrsti proizvoda.
+
+#### Klijentski kod poziva metode kreiranja fabričkog objekta umesto da kreira proizvode direktno pozivom konstruktora (`new` operator). Pošto fabrika odgovara jednoj varijanti proizvoda, svi njeni proizvodi biće kompatibilni.
+
+#### Klijentski kod radi sa fabrikama i proizvodima samo preko njihovih apstraktnih interfejsa. Ovo omogućava klijentskom kodu da radi sa bilo kojim varijantama proizvoda, kreiranim od strane objekta fabrike.
+
+#### KORIŠĆENJE: Mnoge biblioteke i veliki broj framework-a koriste ovaj pattern za obezbeđivanje načina za proširenje i prilagođavanje svojih standardnih komponenti.
+
+#### IDENTIFIKACIJA: Abstract Factory pattern je lako prepoznati po metodama koje vraćaju fabrički objekat. Zatim se fabrika koristi za kreiranje specifičnih podkomponenti.
+
+### Primer:
+
+##### IFurniture.cs:
+
+```
+interface IFurniture
+    {
+        void FurnitureFunction();
+        void ShowStyle();
+    }
+```
+
+
+##### IFurnitureFactory.cs:
+
+```
+interface IFurnitureFactory
+    {
+        IFurniture CreateCabinet();
+        IFurniture CreateChair();
+    }
+```
+
+##### ClassicFurnitureFactory.cs:
+
+```
+class ClassicFurnitureFactory : IFurnitureFactory
+    {
+        public IFurniture CreateCabinet()
+        {
+            return new ClassicCabinet();
+        }
+        public IFurniture CreateChair()
+        {
+            return new ClassicChair();
+        }
+    }
+```
+
+##### SerbianFurnitureFactory.cs:
+
+```
+class SerbianFurnitureFactory : IFurnitureFactory
+    {
+        public IFurniture CreateCabinet()
+        {
+            return new SerbianCabinet();
+        }
+        public IFurniture CreateChair()
+        {
+            return new SerbianChair();
+        }
+    }
+```
+
+##### ClassicCabinet.cs:
+
+```
+class ClassicCabinet : IFurniture
+    {
+        public void FurnitureFunction()
+        {
+            Console.WriteLine("I'm used for storing items.");
+        }
+
+        public void ShowStyle()
+        {
+            Console.WriteLine("I'm classic cabinet.");
+        }
+    }
+```
+
+##### ClassicChair.cs:
+
+```
+class ClassicChair : IFurniture
+    {
+        public void FurnitureFunction()
+        {
+            Console.WriteLine("I'm used for sitting.");
+        }
+
+        public void ShowStyle()
+        {
+            Console.WriteLine("I'm classic chair.");
+        }
+    }
+```
+
+##### SerbianCabinet.cs:
+
+```
+class SerbianCabinet : IFurniture
+    {
+        public void FurnitureFunction()
+        {
+            Console.WriteLine("I'm used for storing items.");
+        }
+
+        public void ShowStyle()
+        {
+            Console.WriteLine("I'm serbian cabinet.");
+        }
+    }
+```
+
+##### SerbianChair.cs:
+
+```
+class SerbianChair : IFurniture
+    {
+        public void FurnitureFunction()
+        {
+            Console.WriteLine("I'm used for sitting.");
+        }
+
+        public void ShowStyle()
+        {
+            Console.WriteLine("I'm serbian chair.");
+        }
+    }
+```
+
+##### Program.cs:
+
+```
+class Program
+    {
+        static void Main(string[] args)
+        {
+            IFurnitureFactory serbianFactory = new SerbianFurnitureFactory();
+            IFurnitureFactory classicFactory = new ClassicFurnitureFactory();
+
+            IFurniture serbianChair = serbianFactory.CreateChair();
+            IFurniture serbianCabinet = serbianFactory.CreateCabinet();
+
+            IFurniture classicChair = classicFactory.CreateChair();
+            IFurniture classicCabinet = classicFactory.CreateCabinet();
+
+            serbianChair.FurnitureFunction();
+            serbianChair.ShowStyle();
+
+            serbianCabinet.FurnitureFunction();
+            serbianCabinet.ShowStyle();
+
+            classicChair.FurnitureFunction();
+            classicChair.ShowStyle();
+
+            classicCabinet.FurnitureFunction();
+            classicCabinet.ShowStyle();
+
+        }
+    }
+```
+
+
+### OUTPUT:
+
+<p align="center">
+  <img src="Slike/abstractFactory.png" width="600"/>
+</p>
 
 ______
 
