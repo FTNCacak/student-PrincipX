@@ -390,8 +390,70 @@ ______
 ______
 
 ### Singleton
-#### Tekst
 
+#### Singleton je dizajn pattern koji osigurava da postoji samo jedan objekat te vrste i pruža mu jednu tačku pristupa za bilo koji drugi kod.
+
+#### Singleton ima skoro iste prednosti i nedostatke kao globalne varijable. Iako su super praktični, oni narušavaju modularnost našeg koda.
+
+#### Ne možemo samo da koristimo klasu koja zavisi od Singleton-a u nekom drugom kontekstu, bez prenošenja Singleton-a u drugi kontekst. Većinu vremena, ovo ograničenje pojavljuje se tokom kreiranja unit testova.
+
+#### KORIŠĆENJE: Mnogi programeri smatraju da je Singleton anti-pattern. Zbog toga je njegova upotreba u padu u C# kodu.
+
+#### IDENTIFIKACIJA: Singleton se može prepoznati pomoću statičke metode kreiranja, koja vraća isti keširani objekat.
+
+### Primer:
+
+##### Singleton.cs:
+
+```
+class Singleton
+    {
+        private int serial;
+        private Singleton(int serial)
+        {
+            this.serial = serial;
+        }
+
+        private static Singleton _instance;
+
+        public static Singleton GetInstance(int serial)
+        {
+            if (_instance == null)
+            {
+                _instance = new Singleton(serial);
+            }
+            return _instance;
+        }
+
+        public void printSerial()
+        {
+            Console.WriteLine(serial);
+        }
+    }
+```
+
+##### Program.cs:
+
+```
+class Program
+    {
+        static void Main(string[] args)
+        {
+            Singleton prvi = Singleton.GetInstance(1389);
+            Singleton drugi = Singleton.GetInstance(2022);
+
+            prvi.printSerial();
+            drugi.printSerial();
+
+        }
+    }
+```
+
+### OUTPUT:
+
+<p align="center">
+  <img src="Slike/singleton.png" width="600"/>
+</p>
 ______
 
 
