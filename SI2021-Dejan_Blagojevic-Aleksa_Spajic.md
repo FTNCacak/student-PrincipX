@@ -643,7 +643,11 @@ class Program
     }
 ```
 
+### OUTPUT:
 
+<p align="center">
+  <img src="Slike/prototype.png" width="600"/>
+</p>
 
 ______
 
