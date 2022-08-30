@@ -557,10 +557,93 @@ class Program
 <p align="center">
   <img src="Slike/builder.png" width="600"/>
 </p>
-____
+
+______
 
 ### Prototype
-#### Tekst
+
+#### Prototype je kreacioni dizajn pattern koji omogućava kloniranje objekata, čak i onih složenih, bez povezivanja sa njihovim specifičnim klasama.
+
+#### Sve klase prototipa treba da imaju zajednički interfejs koji omogućava kopiranje objekata čak i ako su njihove konkretne klase nepoznate. Prototipski objekti mogu proizvesti pune kopije jer objekti iste klase mogu pristupiti privatnim poljima jedni drugih.
+
+#### KORIŠĆENJE: Prototype dizajn pattern je dostupan u C# sa ICloneable interfejsom.
+
+#### IDENTIFIKACIJA: Prototip se može lako prepoznati preko metoda kloniranja (clone), kopiranja (copy), itd.
+
+### Primer:
+
+##### ColorPrototype.cs:
+
+```
+abstract class ColorPrototype
+    {
+        public abstract ColorPrototype Clone();
+    }
+```
+
+##### Color.cs:
+
+```
+class Color : ColorPrototype
+    {
+        int red;
+        int green;
+        int blue;
+        public Color(int red, int green, int blue)
+        {
+            this.red = red;
+            this.green = green;
+            this.blue = blue;
+        }
+        public override ColorPrototype Clone()
+        {
+            Console.WriteLine(
+                "Cloning color RGB: {0,3},{1,3},{2,3}",
+                red, green, blue);
+            return this.MemberwiseClone() as ColorPrototype;
+        }
+    }
+```
+
+##### ColorManager.cs:
+
+```
+class ColorManager
+    {
+        private Dictionary<string, ColorPrototype> colors = new Dictionary<string, ColorPrototype>();
+        public ColorPrototype this[string key]
+        {
+            get { return colors[key]; }
+            set { colors.Add(key, value); }
+        }
+    }
+```
+
+##### Program.cs:
+
+```
+class Program
+    {
+        static void Main(string[] args)
+        {
+            ColorManager colormanager = new ColorManager();
+
+            colormanager["red"] = new Color(255, 0, 0);
+            colormanager["green"] = new Color(0, 255, 0);
+            colormanager["blue"] = new Color(0, 0, 255);
+
+            colormanager["angry"] = new Color(255, 54, 0);
+            colormanager["peace"] = new Color(128, 211, 128);
+            colormanager["flame"] = new Color(211, 34, 20);
+
+            Color color1 = colormanager["red"].Clone() as Color;
+            Color color2 = colormanager["peace"].Clone() as Color;
+            Color color3 = colormanager["flame"].Clone() as Color;
+        }
+    }
+```
+
+
 
 ______
 
