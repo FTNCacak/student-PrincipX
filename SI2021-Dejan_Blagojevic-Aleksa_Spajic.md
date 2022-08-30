@@ -380,9 +380,184 @@ class Program
 ______
 
 ### Builder
-#### Tekst
 
-______
+#### Builder je kreacioni dizajn pattern koji omogućava izgradnju složenih objekata korak po korak.
+#### Za razliku od ostalih kreacionih patterna, Builde ne zahteva da proizvodi imaju zajednički interfejs, što omogućava proizvodnju različitih proizvoda koristeći isti proces izgradnje.
+
+#### KORIŠĆENJE: Builder dizajn pattern je naročito koristan kada treba da kreiramo objekat sa puno mogućih opcija konfiguracije.
+
+#### IDENTIFIKACIJA: Builder dizajn pattern se može prepoznati u klasi koja ima jedan metod kreiranja i nekoliko metoda za konfigurisanje rezultujućeg objekta. Metode Builder-a često podržavaju nadovezivanje (chaining) - someBuilder.setValueA(1).setValueB(2).create().
+
+### Primer:
+
+##### IToyBuilder.cs:
+
+```
+interface IToyBuilder
+    {
+        void SetModel();
+        void SetHead();
+        void SetLimbs();
+        void SetBody();
+        void SetLegs();
+        Toy GetToy();
+    }
+```
+
+##### Toy.cs:
+
+```
+class Toy
+    {
+        public string Model
+        {
+            get;
+            set;
+        }
+        public string Head
+        {
+            get;
+            set;
+        }
+        public string Limbs
+        {
+            get;
+            set;
+        }
+        public string Body
+        {
+            get;
+            set;
+        }
+        public string Legs
+        {
+            get;
+            set;
+        }
+    }
+```
+
+##### ToyABuilder.cs:
+
+```
+class ToyABuilder : IToyBuilder
+    {
+        Toy toy = new Toy();
+        public void SetModel()
+        {
+            toy.Model = "TOY A";
+        }
+        public void SetHead()
+        {
+            toy.Head = "1";
+        }
+        public void SetLimbs()
+        {
+            toy.Limbs = "4";
+        }
+        public void SetBody()
+        {
+            toy.Body = "Plastic";
+        }
+        public void SetLegs()
+        {
+            toy.Legs = "2";
+        }
+        public Toy GetToy()
+        {
+            return toy;
+        }
+    }
+```
+
+##### ToyBBuilder.cs:
+
+```
+class ToyBBuilder : IToyBuilder
+    {
+        Toy toy = new Toy();
+        public void SetModel()
+        {
+            toy.Model = "TOY B";
+        }
+        public void SetHead()
+        {
+            toy.Head = "1";
+        }
+        public void SetLimbs()
+        {
+            toy.Limbs = "4";
+        }
+        public void SetBody()
+        {
+            toy.Body = "Steel";
+        }
+        public void SetLegs()
+        {
+            toy.Legs = "4";
+        }
+        public Toy GetToy()
+        {
+            return toy;
+        }
+    }
+```
+
+##### ToyCreator.cs:
+
+```
+class ToyCreator
+    {
+        private IToyBuilder _toyBuilder;
+        public ToyCreator(IToyBuilder toyBuilder)
+        {
+            _toyBuilder = toyBuilder;
+        }
+        public void CreateToy()
+        {
+            _toyBuilder.SetModel();
+            _toyBuilder.SetHead();
+            _toyBuilder.SetLimbs();
+            _toyBuilder.SetBody();
+            _toyBuilder.SetLegs();
+        }
+        public Toy GetToy()
+        {
+            return _toyBuilder.GetToy();
+        }
+    }
+```
+
+##### Program.cs:
+
+```
+class Program
+    {
+        static void Main(string[] args)
+        {
+            var toyACreator = new ToyCreator(new ToyABuilder());
+            var toyBCreator = new ToyCreator(new ToyBBuilder());
+
+            toyACreator.CreateToy();
+            var ToyA = toyACreator.GetToy();
+
+            toyBCreator.CreateToy();
+            var ToyB = toyBCreator.GetToy();
+
+            Console.WriteLine("ToyA:");
+            Console.WriteLine("Model: " + ToyA.Model + "\nHead: " + ToyA.Head + "\nLimbs: " + ToyA.Limbs + "\nBody: " + ToyA.Body + "\nLegs: " + ToyA.Legs + "\n");
+            Console.WriteLine("\nToyB:");
+            Console.WriteLine("Model: " + ToyB.Model + "\nHead: " + ToyB.Head + "\nLimbs: " + ToyB.Limbs + "\nBody: " + ToyB.Body + "\nLegs: " + ToyB.Legs + "\n");
+        }
+    }
+```
+
+### OUTPUT:
+
+<p align="center">
+  <img src="Slike/builder.png" width="600"/>
+</p>
+____
 
 ### Prototype
 #### Tekst
